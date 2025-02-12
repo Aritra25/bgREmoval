@@ -2,18 +2,16 @@ import mongoose from "mongoose";
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGODB_URI, {
-            dbName: "bg-removal",
-            // useNewUrlParser: true,
-            // useUnifiedTopology: true,
-            // serverSelectionTimeoutMS: 5000, // ⏳ Set 5s timeout for MongoDB
-        });
-
-        console.log("✅ MongoDB Connected:", conn.connection.host);
+      await mongoose.connect(`${process.env.MONGODB_URI}/bg-removal`, {
+        // useNewUrlParser: true,
+        // useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 5000, // ⏳ 5-second timeout
+      });
+      console.log("Connected to MongoDB");
     } catch (error) {
-        console.error("❌ MongoDB Connection Error:", error.message);
-        process.exit(1); // ❌ Exit if connection fails
+      console.error("MongoDB connection error:", error);
     }
-};
+  };
+  
 
 export default connectDB;
