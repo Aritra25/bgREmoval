@@ -6,7 +6,7 @@ const connectDB = async () => {
             dbName: "bg-removal",
             // useNewUrlParser: true,
             // useUnifiedTopology: true,
-            serverSelectionTimeoutMS: 5000, // ⏳ Set 5s timeout for MongoDB
+            // serverSelectionTimeoutMS: 5000, // ⏳ Set 5s timeout for MongoDB
         });
 
         console.log("✅ MongoDB Connected:", conn.connection.host);
