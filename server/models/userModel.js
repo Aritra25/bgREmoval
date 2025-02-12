@@ -16,20 +16,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  firstName: {
-    type: String,
-    // required: true
-  },
-  lastName: {
-    type: String,
-    // required: true
-  },
+  firstName: String, // No need to comment `required: true`
+  lastName: String,   // as it's not required anyway
   creditBalance: {
     type: Number,
     default: 5,
   },
 });
 
-const userModel = mongoose.model.user || mongoose.model("user", userSchema);
+const userModel = mongoose.models.user || mongoose.model("user", userSchema);
 
 export default userModel;
